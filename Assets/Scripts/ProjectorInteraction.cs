@@ -18,10 +18,18 @@ public class ProjectorInteraction : MonoBehaviour
         greenCube.selectEntered.RemoveListener(TurnOnProjector);
         redCube.selectEntered.RemoveListener(TurnOffProjector);
     }
-
+    [ContextMenu("Activate Particles")]
+    public void EnableProjector()
+    {
+        projectorParticleSystem.gameObject.SetActive(true);
+        projectorParticleSystem.Play();
+        Debug.Log("Green Cube Selected!");
+    }
     public void TurnOnProjector(SelectEnterEventArgs args)
     {
+        projectorParticleSystem.gameObject.SetActive(true);
         projectorParticleSystem.Play();
+        Debug.Log("Green Cube Selected!");
     }
 
     public void TurnOffProjector(SelectEnterEventArgs args)
